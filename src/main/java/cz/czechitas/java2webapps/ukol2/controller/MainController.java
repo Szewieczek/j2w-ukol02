@@ -35,11 +35,11 @@ public class MainController {
 
     @GetMapping("/")
     public ModelAndView zobrazCitat() throws IOException {
-        int nahodnyIndexCitatu = random.nextInt(0, 7);
+        int nahodnyIndexCitatu = random.nextInt(readAllLines("citaty.txt").size());
         String nahodnyCitat = readAllLines("citaty.txt").get(nahodnyIndexCitatu);
 
         List<String> seznamObrazku = List.of("Oz_J_FXKvIs", "82TpEld0_e4", "cM94J4lOSU0", "RLw-UC03Gwc", "j4uuKnN43_M");
-        int nahodnyIndexObrazku = random.nextInt(0, 5);
+        int nahodnyIndexObrazku = random.nextInt(seznamObrazku.size());
         String nahodnyObrazek = seznamObrazku.get(nahodnyIndexObrazku);
 
         ModelAndView result = new ModelAndView("citat");
